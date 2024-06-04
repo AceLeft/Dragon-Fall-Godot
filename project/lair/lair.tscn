@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://csfal2su2rx0e"]
+[gd_scene load_steps=3 format=3 uid="uid://csfal2su2rx0e"]
+
+[ext_resource type="PackedScene" uid="uid://4c3xh7147ypi" path="res://lair/floor.tscn" id="1_x2ilx"]
+[ext_resource type="PackedScene" uid="uid://d0i3ojk6o63mg" path="res://player/player.tscn" id="2_f42se"]
 
 [node name="Lair" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_x2ilx")]
+
+[node name="Player" parent="." instance=ExtResource("2_f42se")]
+position = Vector2(117, 373)

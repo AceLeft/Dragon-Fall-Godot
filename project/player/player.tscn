@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0i3ojk6o63mg"]
+[gd_scene load_steps=4 format=3 uid="uid://d0i3ojk6o63mg"]
 
 [ext_resource type="Texture2D" uid="uid://dklpemybws4p5" path="res://player/helmet_blue.png" id="1_vhqxy"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_vw3x2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmqim"]
 size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 6
+script = ExtResource("1_vw3x2")
 
 [node name="Body" type="ColorRect" parent="."]
 offset_left = -25.0
