@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0i3ojk6o63mg"]
+[gd_scene load_steps=9 format=3 uid="uid://d0i3ojk6o63mg"]
 
 [ext_resource type="Texture2D" uid="uid://dklpemybws4p5" path="res://player/helmet_blue.png" id="1_vhqxy"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_vw3x2"]
@@ -10,6 +10,45 @@ size = Vector2(50, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhdim"]
 size = Vector2(10, 38)
 
+[sub_resource type="Animation" id="Animation_nw3m5"]
+resource_name = "swing_sword"
+length = 0.233337
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 0.466517),
+"update": 0,
+"values": [3.14159, 0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_fdq1f"]
+resource_name = "reset"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwhef"]
+_data = {
+"reset": SubResource("Animation_fdq1f"),
+"swing_sword": SubResource("Animation_nw3m5")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_vw3x2")
@@ -19,6 +58,7 @@ offset_left = -25.0
 offset_top = -50.0
 offset_right = 25.0
 color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)
@@ -30,7 +70,8 @@ position = Vector2(-13, -64)
 texture = ExtResource("1_vhqxy")
 
 [node name="Sword" type="RigidBody2D" parent="."]
-position = Vector2(10, -19)
+position = Vector2(10, -38)
+rotation = 0.785398
 collision_layer = 8
 collision_mask = 4
 gravity_scale = 0.0
@@ -39,12 +80,18 @@ script = ExtResource("3_m1yfa")
 
 [node name="SwordRect" type="ColorRect" parent="Sword"]
 offset_left = -5.0
-offset_top = -19.0
+offset_top = -38.0
 offset_right = 5.0
-offset_bottom = 19.0
 color = Color(0.572549, 0.572549, 0.611765, 1)
-metadata/_edit_lock_ = true
 
 [node name="SwordCollision" type="CollisionShape2D" parent="Sword"]
+position = Vector2(-1.90735e-06, -19)
 shape = SubResource("RectangleShape2D_xhdim")
-metadata/_edit_lock_ = true
+
+[node name="SwordAnimator" type="AnimationPlayer" parent="Sword"]
+root_node = NodePath("../SwordRect")
+libraries = {
+"": SubResource("AnimationLibrary_cwhef")
+}
+
+[connection signal="animation_finished" from="Sword/SwordAnimator" to="Sword" method="_on_sword_animator_animation_finished"]
