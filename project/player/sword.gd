@@ -1,3 +1,4 @@
+class_name Sword
 extends RigidBody2D
 
 var _attacking := false

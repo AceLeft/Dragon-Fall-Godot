@@ -10,6 +10,22 @@ size = Vector2(50, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhdim"]
 size = Vector2(10, 38)
 
+[sub_resource type="Animation" id="Animation_fdq1f"]
+resource_name = "reset"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_nw3m5"]
 resource_name = "swing_sword"
 length = 0.233337
@@ -24,23 +40,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 0.466517),
 "update": 0,
-"values": [3.14159, 0.785398]
-}
-
-[sub_resource type="Animation" id="Animation_fdq1f"]
-resource_name = "reset"
-length = 0.10001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.01),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
+"values": [0.0, 2.35619]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cwhef"]
@@ -69,29 +69,54 @@ texture_filter = 1
 position = Vector2(-13, -64)
 texture = ExtResource("1_vhqxy")
 
-[node name="Sword" type="RigidBody2D" parent="."]
+[node name="SwordRight" type="RigidBody2D" parent="."]
 position = Vector2(10, -38)
-rotation = 0.785398
 collision_layer = 8
 collision_mask = 4
 gravity_scale = 0.0
 angular_damp_mode = 1
 script = ExtResource("3_m1yfa")
 
-[node name="SwordRect" type="ColorRect" parent="Sword"]
+[node name="SwordRect" type="ColorRect" parent="SwordRight"]
 offset_left = -5.0
-offset_top = -38.0
 offset_right = 5.0
+offset_bottom = 38.0
 color = Color(0.572549, 0.572549, 0.611765, 1)
 
-[node name="SwordCollision" type="CollisionShape2D" parent="Sword"]
-position = Vector2(-1.90735e-06, -19)
+[node name="SwordCollision" type="CollisionShape2D" parent="SwordRight"]
+position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_xhdim")
 
-[node name="SwordAnimator" type="AnimationPlayer" parent="Sword"]
+[node name="SwordAnimator" type="AnimationPlayer" parent="SwordRight"]
 root_node = NodePath("../SwordRect")
 libraries = {
 "": SubResource("AnimationLibrary_cwhef")
 }
 
-[connection signal="animation_finished" from="Sword/SwordAnimator" to="Sword" method="_on_sword_animator_animation_finished"]
+[node name="SwordLeft" type="RigidBody2D" parent="."]
+visible = false
+position = Vector2(-10, -38)
+collision_layer = 8
+collision_mask = 4
+gravity_scale = 0.0
+angular_damp_mode = 1
+script = ExtResource("3_m1yfa")
+
+[node name="SwordRect" type="ColorRect" parent="SwordLeft"]
+offset_left = -5.0
+offset_right = 5.0
+offset_bottom = 38.0
+color = Color(0.572549, 0.572549, 0.611765, 1)
+
+[node name="SwordCollision" type="CollisionShape2D" parent="SwordLeft"]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_xhdim")
+
+[node name="SwordAnimator" type="AnimationPlayer" parent="SwordLeft"]
+root_node = NodePath("../SwordRect")
+libraries = {
+"": SubResource("AnimationLibrary_cwhef")
+}
+
+[connection signal="animation_finished" from="SwordRight/SwordAnimator" to="SwordRight" method="_on_sword_animator_animation_finished"]
+[connection signal="animation_finished" from="SwordLeft/SwordAnimator" to="SwordLeft" method="_on_sword_animator_animation_finished"]
