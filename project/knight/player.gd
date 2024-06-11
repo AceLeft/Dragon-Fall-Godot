@@ -10,8 +10,10 @@ var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _facing_left := false
 
 @onready var _hat : Sprite2D = $Hat
-@onready var _sword_right = $SwordRight
-@onready var _sword_left = $SwordLeft
+@onready var _sword : Sword = $Sword
+
+func _ready():
+	_sword.player = $"."
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -32,13 +34,14 @@ func _physics_process(delta):
 	# Face direction
 	if Input.is_action_just_pressed("move_left") and not _facing_left:
 		_hat.position.x *= -1
-		_sword.transform = Transform2D(0.0, Vector2(-10,38))
+		_sword.position.x *= -1
+		_sword.facing_left = true
 		_hat.flip_h = true
 		_facing_left = true
 	if Input.is_action_just_pressed("move_right") and _facing_left:
 		_hat.position.x *= -1
-		_sword.transform = Transform2D(0.0, Vector2(10,38))
-		print(_sword.position)
+		_sword.position.x *= -1
+		_sword.facing_left = false
 		_hat.flip_h = false
 		_facing_left = false
 
