@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://csfal2su2rx0e"]
+[gd_scene load_steps=5 format=3 uid="uid://csfal2su2rx0e"]
 
 [ext_resource type="PackedScene" uid="uid://4c3xh7147ypi" path="res://lair/floor.tscn" id="1_x2ilx"]
 [ext_resource type="PackedScene" uid="uid://d0i3ojk6o63mg" path="res://knight/player.tscn" id="2_f42se"]
+[ext_resource type="PackedScene" uid="uid://ckdpdynwuwrv" path="res://dragon/dragon.tscn" id="3_2uess"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyby4"]
 size = Vector2(88.5, 498)
@@ -28,3 +29,5 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(545, 250)
 shape = SubResource("RectangleShape2D_tyby4")
+
+[node name="Dragon" parent="." instance=ExtResource("3_2uess")]
