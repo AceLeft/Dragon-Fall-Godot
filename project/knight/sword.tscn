@@ -62,6 +62,8 @@ _data = {
 }
 
 [node name="Sword" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 6
 script = ExtResource("1_tw845")
 
 [node name="SwordRect" type="ColorRect" parent="."]

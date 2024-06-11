@@ -45,5 +45,4 @@ func _physics_process(delta):
 		_hat.flip_h = false
 		_facing_left = false
 
-
 	move_and_slide()

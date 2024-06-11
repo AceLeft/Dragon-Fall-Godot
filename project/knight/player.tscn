@@ -29,4 +29,3 @@ texture = ExtResource("1_vhqxy")
 
 [node name="Sword" parent="." instance=ExtResource("3_ynluu")]
 position = Vector2(13, -38)
-rotation = 0.0
