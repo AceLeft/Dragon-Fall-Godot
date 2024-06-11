@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://csfal2su2rx0e"]
+[gd_scene load_steps=4 format=3 uid="uid://csfal2su2rx0e"]
 
 [ext_resource type="PackedScene" uid="uid://4c3xh7147ypi" path="res://lair/floor.tscn" id="1_x2ilx"]
 [ext_resource type="PackedScene" uid="uid://d0i3ojk6o63mg" path="res://knight/player.tscn" id="2_f42se"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyby4"]
+size = Vector2(88.5, 498)
 
 [node name="Lair" type="Node2D"]
 
@@ -9,3 +12,19 @@
 
 [node name="Player" parent="." instance=ExtResource("2_f42se")]
 position = Vector2(117, 373)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-44, 250)
+shape = SubResource("RectangleShape2D_tyby4")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(545, 250)
+shape = SubResource("RectangleShape2D_tyby4")
