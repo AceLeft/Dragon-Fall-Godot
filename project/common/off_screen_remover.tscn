@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6g88gnttwmpl"]
+
+[ext_resource type="Script" path="res://common/off_screen_remover.gd" id="1_3vy5h"]
+
+[node name="OffScreenRemover" type="VisibleOnScreenNotifier2D"]
+script = ExtResource("1_3vy5h")
+
+[connection signal="screen_exited" from="." to="." method="_on_screen_exited"]
