@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxlaxc2grmkss"]
+
+[sub_resource type="Gradient" id="Gradient_xa3q2"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.4, 0.6, 0.8)
+colors = PackedColorArray(1, 0, 0, 1, 0.955339, 0.415899, 1.92523e-07, 1, 0.965141, 0.751392, 0, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 5
+
+[node name="Fire" type="Node2D"]
+
+[node name="FireEffect" type="CPUParticles2D" parent="."]
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 19.1
+direction = Vector2(-1, 0)
+spread = 40.0
+gravity = Vector2(-980, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+scale_amount_min = 15.0
+scale_amount_max = 15.0
+color_initial_ramp = SubResource("Gradient_xa3q2")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DamageArea"]
+polygon = PackedVector2Array(0, -21, -623, -200, -623, 200, 0, 21)
