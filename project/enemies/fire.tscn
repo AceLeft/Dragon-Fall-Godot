@@ -24,6 +24,7 @@ color_initial_ramp = SubResource("Gradient_xa3q2")
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="DamageArea"]
 polygon = PackedVector2Array(0, -21, -623, -200, -623, 200, 0, 21)

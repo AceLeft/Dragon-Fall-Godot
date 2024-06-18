@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0i3ojk6o63mg"]
+[gd_scene load_steps=6 format=3 uid="uid://d0i3ojk6o63mg"]
 
 [ext_resource type="Texture2D" uid="uid://dklpemybws4p5" path="res://knight/helmet_blue.png" id="1_vhqxy"]
 [ext_resource type="Script" path="res://knight/player.gd" id="1_vw3x2"]
@@ -7,8 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmqim"]
 size = Vector2(50, 50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6tc3"]
+size = Vector2(50, 50)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 4
 script = ExtResource("1_vw3x2")
 
 [node name="Body" type="ColorRect" parent="."]
@@ -18,10 +21,6 @@ offset_right = 25.0
 color = Color(1, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -25)
-shape = SubResource("RectangleShape2D_tmqim")
-
 [node name="Hat" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-13, -64)
@@ -29,3 +28,16 @@ texture = ExtResource("1_vhqxy")
 
 [node name="Sword" parent="." instance=ExtResource("3_ynluu")]
 position = Vector2(13, -38)
+
+[node name="PhysicalInteractBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_tmqim")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_r6tc3")
+
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]

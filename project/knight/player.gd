@@ -4,10 +4,13 @@ extends CharacterBody2D
 
 const _SPEED = 300.0
 const _JUMP_VELOCITY = -600.0
+const _MAX_HEALTH = 100
+const _DAMAGE_AMOUNT = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _facing_left := false
+var _health := _MAX_HEALTH
 
 @onready var _hat : Sprite2D = $Hat
 @onready var _sword : Sword = $Sword
@@ -46,3 +49,11 @@ func _physics_process(delta):
 		_facing_left = false
 
 	move_and_slide()
+
+
+
+func _on_damage_area_area_entered(area):
+	print(area)
+	_health -= _DAMAGE_AMOUNT
+	if _health == 0:
+		print ("auhhhh i die")
