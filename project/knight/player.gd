@@ -1,11 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
+signal HEALTH_LOST(total_percentage: float)
 
 const _SPEED = 300.0
 const _JUMP_VELOCITY = -600.0
-const _MAX_HEALTH = 100
-const _DAMAGE_AMOUNT = 10
+const _MAX_HEALTH = 100.0
+const _DAMAGE_AMOUNT = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -52,8 +53,9 @@ func _physics_process(delta):
 
 
 
-func _on_damage_area_area_entered(area):
-	print(area)
+func _on_damage_area_area_entered(_area):
 	_health -= _DAMAGE_AMOUNT
-	if _health == 0:
+	var health_percentage : float = _health / _MAX_HEALTH
+	HEALTH_LOST.emit(health_percentage)
+	if _health <= 0:
 		print ("auhhhh i die")

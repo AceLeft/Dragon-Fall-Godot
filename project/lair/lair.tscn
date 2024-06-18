@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://csfal2su2rx0e"]
+[gd_scene load_steps=6 format=3 uid="uid://csfal2su2rx0e"]
 
 [ext_resource type="PackedScene" uid="uid://4c3xh7147ypi" path="res://lair/floor.tscn" id="1_x2ilx"]
 [ext_resource type="PackedScene" uid="uid://d0i3ojk6o63mg" path="res://knight/player.tscn" id="2_f42se"]
 [ext_resource type="PackedScene" uid="uid://ckdpdynwuwrv" path="res://dragon/dragon.tscn" id="3_2uess"]
+[ext_resource type="PackedScene" uid="uid://cilq08hq08quf" path="res://knight/player_health_bar.tscn" id="4_tfi5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyby4"]
 size = Vector2(88.5, 498)
@@ -31,3 +32,8 @@ position = Vector2(545, 250)
 shape = SubResource("RectangleShape2D_tyby4")
 
 [node name="Dragon" parent="." instance=ExtResource("3_2uess")]
+
+[node name="PlayerHealthBar" parent="." instance=ExtResource("4_tfi5c")]
+position = Vector2(8, 8)
+
+[connection signal="HEALTH_LOST" from="Player" to="PlayerHealthBar" method="_on_player_health_lost"]
