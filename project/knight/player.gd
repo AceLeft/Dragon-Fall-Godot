@@ -45,7 +45,8 @@ func _physics_process(delta) -> void:
 	move_and_slide()
 
 
-func _on_damage_area_area_entered(_area) -> void:
+func _on_damage_area_area_entered(area) -> void:
+	print(area)
 	_health -= _DAMAGE_AMOUNT
 	var health_percentage : float = _health / _MAX_HEALTH
 	HEALTH_LOST.emit(health_percentage)
