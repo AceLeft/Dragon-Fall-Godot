@@ -146,9 +146,9 @@ shape = SubResource("RectangleShape2D_havcd")
 
 [node name="Jaw" type="ColorRect" parent="DragonParts"]
 offset_left = 250.0
-offset_top = 185.0
+offset_top = 180.0
 offset_right = 350.0
-offset_bottom = 195.0
+offset_bottom = 190.0
 color = Color(0.501961, 0.227451, 0.109804, 1)
 
 [node name="FootArea" type="Area2D" parent="DragonParts"]
@@ -187,6 +187,9 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_pd8oy")
 }
+
+[node name="QuakeStartMarker" type="Marker2D" parent="."]
+position = Vector2(350, 450)
 
 [connection signal="timeout" from="ChooseNewAttackTimer" to="." method="_on_choose_new_attack_timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

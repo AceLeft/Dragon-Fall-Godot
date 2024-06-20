@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyo1n8ihmby3l"]
+
+[ext_resource type="PackedScene" uid="uid://c6g88gnttwmpl" path="res://common/off_screen_remover.tscn" id="2_iqfhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_regdq"]
+size = Vector2(20, 189)
+
+[node name="QuakePiece" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_bottom = 189.0
+color = Color(0.921569, 0.619608, 0.0470588, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 94.5)
+shape = SubResource("RectangleShape2D_regdq")
+
+[node name="OffScreenRemover" parent="." instance=ExtResource("2_iqfhj")]
+position = Vector2(-10, 10)

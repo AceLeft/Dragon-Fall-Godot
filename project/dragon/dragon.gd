@@ -1,5 +1,11 @@
 extends Node2D
 
+enum ATTACKS{
+	BreatheFire,
+	SlamGround
+}
+
+
 var _attacking := false
 
 @onready var _fire = $Fire
@@ -9,8 +15,12 @@ var _attacking := false
 
 func _on_choose_new_attack_timer_timeout() -> void:
 	if not _attacking:
-		_attack_animator.play("lower_jaw")
-		_attacking = true
+		var current_attack = ATTACKS.SlamGround
+		if current_attack == ATTACKS.BreatheFire:
+			_attack_animator.play("lower_jaw")
+			_attacking = true
+		elif current_attack == ATTACKS.SlamGround:
+			pass
 
 
 func _on_fire_timer_timeout() -> void:
