@@ -132,5 +132,4 @@ offset_bottom = 325.0
 color = Color(0.501961, 0.227451, 0.109804, 1)
 
 [node name="Fire" parent="." instance=ExtResource("4_ii6l6")]
-visible = false
 position = Vector2(255, 184)
