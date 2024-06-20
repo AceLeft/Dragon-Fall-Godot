@@ -13,13 +13,12 @@ var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _facing_left := false
 var _health := _MAX_HEALTH
 
-@onready var _hat : Sprite2D = $Hat
 @onready var _sword : Sword = $Sword
 
-func _ready():
+func _ready() -> void:
 	_sword.player = $"."
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += _gravity * delta
@@ -46,8 +45,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-
-func _on_damage_area_area_entered(_area):
+func _on_damage_area_area_entered(_area) -> void:
 	_health -= _DAMAGE_AMOUNT
 	var health_percentage : float = _health / _MAX_HEALTH
 	HEALTH_LOST.emit(health_percentage)
