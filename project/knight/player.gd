@@ -37,16 +37,10 @@ func _physics_process(delta):
 
 	# Face direction
 	if Input.is_action_just_pressed("move_left") and not _facing_left:
-		_hat.position.x *= -1
-		_sword.position.x *= -1
-		_sword.facing_left = true
-		_hat.flip_h = true
+		scale.x = -1
 		_facing_left = true
 	if Input.is_action_just_pressed("move_right") and _facing_left:
-		_hat.position.x *= -1
-		_sword.position.x *= -1
-		_sword.facing_left = false
-		_hat.flip_h = false
+		scale.x = -1
 		_facing_left = false
 
 	move_and_slide()
