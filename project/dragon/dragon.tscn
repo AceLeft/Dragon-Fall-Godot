@@ -175,7 +175,7 @@ color = Color(0.501961, 0.227451, 0.109804, 1)
 [node name="Fire" parent="." instance=ExtResource("4_ii6l6")]
 position = Vector2(255, 184)
 
-[node name="ChooseNewAttackTimer" type="Timer" parent="."]
+[node name="NewAttackTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
@@ -191,6 +191,10 @@ libraries = {
 [node name="QuakeStartMarker" type="Marker2D" parent="."]
 position = Vector2(350, 450)
 
-[connection signal="timeout" from="ChooseNewAttackTimer" to="." method="_on_choose_new_attack_timer_timeout"]
+[node name="NewQuakePieceTimer" type="Timer" parent="."]
+wait_time = 0.07
+
+[connection signal="timeout" from="NewAttackTimer" to="." method="_on_new_attack_timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
 [connection signal="animation_finished" from="AttackAnimations" to="." method="_on_attack_animations_animation_finished"]
+[connection signal="timeout" from="NewQuakePieceTimer" to="." method="_on_new_quake_piece_timer_timeout"]
