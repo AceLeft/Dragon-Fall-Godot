@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyo1n8ihmby3l"]
+[gd_scene load_steps=4 format=3 uid="uid://dyo1n8ihmby3l"]
 
 [ext_resource type="PackedScene" uid="uid://c6g88gnttwmpl" path="res://common/off_screen_remover.tscn" id="2_iqfhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_regdq"]
+size = Vector2(20, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jovsi"]
 size = Vector2(20, 189)
 
 [node name="QuakePiece" type="RigidBody2D"]
@@ -20,3 +23,11 @@ shape = SubResource("RectangleShape2D_regdq")
 
 [node name="OffScreenRemover" parent="." instance=ExtResource("2_iqfhj")]
 position = Vector2(-10, 10)
+
+[node name="DamageBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2(-10, 94.5)
+shape = SubResource("RectangleShape2D_jovsi")
