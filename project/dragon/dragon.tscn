@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckdpdynwuwrv"]
+[gd_scene load_steps=15 format=3 uid="uid://ckdpdynwuwrv"]
 
 [ext_resource type="Texture2D" uid="uid://bemgvppwewsrj" path="res://dragon/dragon_body.png" id="1_flgd6"]
 [ext_resource type="Script" path="res://dragon/dragon.gd" id="1_wb3x7"]
@@ -53,10 +53,27 @@ tracks/0/keys = {
 "values": [Vector2(250, 185), Vector2(250, 180)]
 }
 
+[sub_resource type="Animation" id="Animation_uk4eu"]
+resource_name = "slam_ground"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DragonParts/FootArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(350, 350), Vector2(351, 323), Vector2(351, 323), Vector2(351, 350)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pd8oy"]
 _data = {
 "lower_jaw": SubResource("Animation_w81se"),
-"raise_jaw": SubResource("Animation_kqnmr")
+"raise_jaw": SubResource("Animation_kqnmr"),
+"slam_ground": SubResource("Animation_uk4eu")
 }
 
 [node name="Dragon" type="Node2D"]

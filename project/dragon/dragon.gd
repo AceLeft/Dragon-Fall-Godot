@@ -28,7 +28,7 @@ func _on_new_attack_timer_timeout() -> void:
 			_attacking = true
 		elif current_attack == ATTACKS.SlamGround:
 			_attacking = true
-			_quake_piece_timer.start()
+			_attack_animator.play("slam_ground")
 
 
 func _on_fire_timer_timeout() -> void:
@@ -42,6 +42,8 @@ func _on_attack_animations_animation_finished(anim_name):
 		$FireTimer.start()
 	if anim_name == "raise_jaw":
 		_attacking = false
+	if anim_name == "slam_ground":
+		_quake_piece_timer.start()
 
 
 func _on_new_quake_piece_timer_timeout() -> void:
