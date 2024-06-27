@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ckdpdynwuwrv"]
+[gd_scene load_steps=16 format=3 uid="uid://ckdpdynwuwrv"]
 
 [ext_resource type="Texture2D" uid="uid://bemgvppwewsrj" path="res://dragon/dragon_body.png" id="1_flgd6"]
 [ext_resource type="Script" path="res://dragon/dragon.gd" id="1_wb3x7"]
@@ -27,7 +27,7 @@ length = 0.40001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DragonParts/Jaw:position")
+tracks/0/path = NodePath("DragonParts/Face/Jaw:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +43,7 @@ length = 0.40001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DragonParts/Jaw:position")
+tracks/0/path = NodePath("DragonParts/Face/Jaw:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -69,10 +69,75 @@ tracks/0/keys = {
 "values": [Vector2(350, 350), Vector2(350, 286), Vector2(350, 350)]
 }
 
+[sub_resource type="Animation" id="Animation_gqnpt"]
+resource_name = "rear_head"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DragonParts/BottomNeckArea:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DragonParts/MiddleBottomNeckArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 2.73208),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(29, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DragonParts/MiddleTopNeckArea:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 5.46416),
+"update": 0,
+"values": [Vector2(300, 202), Vector2(343, 223)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DragonParts/TopNeckArea:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1.31951),
+"update": 0,
+"values": [Vector2(300, 182), Vector2(350, 211)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DragonParts/Face:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(52, 32)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pd8oy"]
 _data = {
 "lower_jaw": SubResource("Animation_w81se"),
 "raise_jaw": SubResource("Animation_kqnmr"),
+"rear_head": SubResource("Animation_gqnpt"),
 "slam_ground": SubResource("Animation_uk4eu")
 }
 
@@ -93,19 +158,10 @@ texture = ExtResource("1_flgd6")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DragonParts/BodyArea"]
 polygon = PackedVector2Array(-175, -63, 175, -63, 175, 62, -144, 62, -175, 29)
 
-[node name="Head" type="Sprite2D" parent="DragonParts"]
-texture_filter = 1
-position = Vector2(300, 147.5)
-texture = ExtResource("2_yu4m4")
-
-[node name="Horn" type="Sprite2D" parent="DragonParts"]
-texture_filter = 1
-position = Vector2(335, 115.5)
-texture = ExtResource("3_bemey")
-
 [node name="BottomNeckArea" type="Area2D" parent="DragonParts"]
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="Neck1" type="ColorRect" parent="DragonParts/BottomNeckArea"]
 offset_left = 300.0
@@ -121,6 +177,7 @@ shape = SubResource("RectangleShape2D_usi3m")
 [node name="MiddleBottomNeckArea" type="Area2D" parent="DragonParts"]
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="Neck2" type="ColorRect" parent="DragonParts/MiddleBottomNeckArea"]
 offset_left = 300.0
@@ -137,6 +194,7 @@ shape = SubResource("RectangleShape2D_u7osv")
 position = Vector2(300, 202)
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="Neck3" type="ColorRect" parent="DragonParts/MiddleTopNeckArea"]
 offset_right = 50.0
@@ -151,6 +209,7 @@ shape = SubResource("RectangleShape2D_6202f")
 position = Vector2(300, 182)
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="Neck4" type="ColorRect" parent="DragonParts/TopNeckArea"]
 offset_top = -2.0
@@ -160,13 +219,6 @@ offset_bottom = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragonParts/TopNeckArea"]
 position = Vector2(25, 9)
 shape = SubResource("RectangleShape2D_havcd")
-
-[node name="Jaw" type="ColorRect" parent="DragonParts"]
-offset_left = 250.0
-offset_top = 180.0
-offset_right = 350.0
-offset_bottom = 190.0
-color = Color(0.501961, 0.227451, 0.109804, 1)
 
 [node name="FootArea" type="Area2D" parent="DragonParts"]
 position = Vector2(350, 350)
@@ -188,6 +240,26 @@ offset_top = 300.0
 offset_right = 650.0
 offset_bottom = 325.0
 color = Color(0.501961, 0.227451, 0.109804, 1)
+
+[node name="Face" type="Node2D" parent="DragonParts"]
+metadata/_edit_group_ = true
+
+[node name="Jaw" type="ColorRect" parent="DragonParts/Face"]
+offset_left = 250.0
+offset_top = 180.0
+offset_right = 350.0
+offset_bottom = 190.0
+color = Color(0.501961, 0.227451, 0.109804, 1)
+
+[node name="Head" type="Sprite2D" parent="DragonParts/Face"]
+texture_filter = 1
+position = Vector2(300, 147.5)
+texture = ExtResource("2_yu4m4")
+
+[node name="Horn" type="Sprite2D" parent="DragonParts/Face"]
+texture_filter = 1
+position = Vector2(335, 115.5)
+texture = ExtResource("3_bemey")
 
 [node name="Fire" parent="." instance=ExtResource("4_ii6l6")]
 position = Vector2(255, 184)
