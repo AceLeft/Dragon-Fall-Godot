@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckdpdynwuwrv"]
+[gd_scene load_steps=19 format=3 uid="uid://ckdpdynwuwrv"]
 
 [ext_resource type="Texture2D" uid="uid://bemgvppwewsrj" path="res://dragon/dragon_body.png" id="1_flgd6"]
 [ext_resource type="Script" path="res://dragon/dragon.gd" id="1_wb3x7"]
@@ -34,7 +34,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(250, 180), Vector2(250, 185)]
+"values": [Vector2(-1, 65), Vector2(-1, 70)]
 }
 
 [sub_resource type="Animation" id="Animation_kqnmr"]
@@ -50,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(250, 185), Vector2(250, 180)]
+"values": [Vector2(-1, 70), Vector2(-1, 65)]
 }
 
 [sub_resource type="Animation" id="Animation_uk4eu"]
@@ -67,70 +67,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.5, 1),
 "update": 0,
 "values": [Vector2(350, 350), Vector2(350, 286), Vector2(350, 350)]
-}
-
-[sub_resource type="Animation" id="Animation_gqnpt"]
-resource_name = "rear_head"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DragonParts/BottomNeckArea:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DragonParts/MiddleBottomNeckArea:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(300, 222), Vector2(327, 235)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DragonParts/MiddleTopNeckArea:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 5.46416),
-"update": 0,
-"values": [Vector2(300, 202), Vector2(343, 223)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("DragonParts/TopNeckArea:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1.31951),
-"update": 0,
-"values": [Vector2(300, 182), Vector2(350, 211)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DragonParts/Face:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(252, 105), Vector2(302, 137)]
 }
 
 [sub_resource type="Animation" id="Animation_vxnlk"]
@@ -245,104 +181,103 @@ tracks/8/keys = {
 "values": [Vector2(302, 137), Vector2(233, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_kvnij"]
-resource_name = "bounce_head"
-length = 0.9
+[sub_resource type="Animation" id="Animation_yf01t"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DragonParts/BottomNeckArea:position")
+tracks/0/path = NodePath("DragonParts/FootArea:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(300, 222), Vector2(290.4, 237.2), Vector2(283, 242)]
+"values": [Vector2(350, 350)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DragonParts/MiddleBottomNeckArea:scale")
+tracks/1/path = NodePath("DragonParts/BottomNeckArea:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 2.4), Vector2(1.08, 1.2), Vector2(1.3, 0.8)]
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("DragonParts/MiddleTopNeckArea:scale")
+tracks/2/path = NodePath("DragonParts/MiddleBottomNeckArea:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 2.4), Vector2(1.08, 1.2), Vector2(1.2, 0.8)]
+"values": [Vector2(300, 222)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DragonParts/TopNeckArea:scale")
+tracks/3/path = NodePath("DragonParts/MiddleTopNeckArea:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 2.4), Vector2(1.08, 1.2), Vector2(1.15, 0.7)]
+"values": [Vector2(300, 202)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("DragonParts/BottomNeckArea:scale")
+tracks/4/path = NodePath("DragonParts/TopNeckArea:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 2), Vector2(1, 1.2), Vector2(1.2, 1)]
+"values": [Vector2(300, 182)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("DragonParts/MiddleBottomNeckArea:position")
+tracks/5/path = NodePath("DragonParts/MiddleBottomNeckArea:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(295, 174), Vector2(257.4, 214), Vector2(240, 226)]
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DragonParts/MiddleTopNeckArea:position")
+tracks/6/path = NodePath("DragonParts/MiddleTopNeckArea:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(286, 126), Vector2(222, 192.4), Vector2(202, 214)]
+"values": [Vector2(1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("DragonParts/TopNeckArea:position")
+tracks/7/path = NodePath("DragonParts/TopNeckArea:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(282, 78), Vector2(186, 174.8), Vector2(159, 205)]
+"values": [Vector2(1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -351,18 +286,267 @@ tracks/8/path = NodePath("DragonParts/Face:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 0.75786),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(233, 0), Vector2(125.8, 100.8), Vector2(93, 135)]
+"values": [Vector2(252, 105)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DragonParts/Face/Jaw:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 65)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("DragonParts/BottomNeckArea:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 242)]
+}
+
+[sub_resource type="Animation" id="Animation_kvnij"]
+resource_name = "recover_head"
+length = 2.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DragonParts/BottomNeckArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(300, 222), Vector2(283, 242), Vector2(283, 242), Vector2(300, 242)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DragonParts/MiddleBottomNeckArea:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(1, 2.4), Vector2(1.3, 0.8), Vector2(1.3, 0.8), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DragonParts/MiddleTopNeckArea:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(1, 2.4), Vector2(1.2, 0.8), Vector2(1.2, 0.8), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DragonParts/TopNeckArea:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(1, 2.4), Vector2(1.15, 0.7), Vector2(1.15, 0.7), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DragonParts/BottomNeckArea:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(1, 2), Vector2(1.2, 1), Vector2(1.2, 1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DragonParts/MiddleTopNeckArea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(286, 126), Vector2(202, 214), Vector2(202, 214), Vector2(300, 202)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DragonParts/TopNeckArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(282, 78), Vector2(159, 205), Vector2(159, 205), Vector2(300, 182)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DragonParts/Face:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(233, 0), Vector2(93, 135), Vector2(93, 135), Vector2(252, 105)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DragonParts/MiddleBottomNeckArea:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.9),
+"transitions": PackedFloat32Array(0.63728, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector2(295, 174), Vector2(240, 226), Vector2(240, 226), Vector2(300, 222)]
+}
+
+[sub_resource type="Animation" id="Animation_gqnpt"]
+resource_name = "hit_head"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DragonParts/BottomNeckArea:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DragonParts/MiddleBottomNeckArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 222), Vector2(327, 235), Vector2(327, 235), Vector2(295, 174)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DragonParts/MiddleTopNeckArea:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 202), Vector2(343, 223), Vector2(343, 223), Vector2(286, 126)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DragonParts/TopNeckArea:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 182), Vector2(350, 211), Vector2(350, 211), Vector2(282, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DragonParts/Face:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(252, 105), Vector2(302, 137), Vector2(302, 137), Vector2(233, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DragonParts/BottomNeckArea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 242), Vector2(300, 242), Vector2(300, 222)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DragonParts/MiddleBottomNeckArea:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 2.4)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DragonParts/MiddleTopNeckArea:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 2.4)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DragonParts/TopNeckArea:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 2.4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pd8oy"]
 _data = {
-"bounce_head": SubResource("Animation_kvnij"),
+"RESET": SubResource("Animation_yf01t"),
+"hit_head": SubResource("Animation_gqnpt"),
 "lower_jaw": SubResource("Animation_w81se"),
 "raise_jaw": SubResource("Animation_kqnmr"),
-"rear_head": SubResource("Animation_gqnpt"),
+"recover_head": SubResource("Animation_kvnij"),
 "slam_ground": SubResource("Animation_uk4eu"),
 "slam_head": SubResource("Animation_vxnlk")
 }
@@ -385,8 +569,7 @@ texture = ExtResource("1_flgd6")
 polygon = PackedVector2Array(-175, -63, 175, -63, 175, 62, -144, 62, -175, 29)
 
 [node name="BottomNeckArea" type="Area2D" parent="DragonParts"]
-position = Vector2(283, 242)
-scale = Vector2(1.2, 1)
+position = Vector2(300, 242)
 collision_layer = 2
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -401,8 +584,7 @@ position = Vector2(25, 10)
 shape = SubResource("RectangleShape2D_usi3m")
 
 [node name="MiddleBottomNeckArea" type="Area2D" parent="DragonParts"]
-position = Vector2(240, 226)
-scale = Vector2(1.3, 0.8)
+position = Vector2(300, 222)
 collision_layer = 2
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -417,8 +599,7 @@ position = Vector2(25, 10)
 shape = SubResource("RectangleShape2D_u7osv")
 
 [node name="MiddleTopNeckArea" type="Area2D" parent="DragonParts"]
-position = Vector2(202, 214)
-scale = Vector2(1.2, 0.8)
+position = Vector2(300, 202)
 collision_layer = 2
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -433,8 +614,7 @@ position = Vector2(25, 10)
 shape = SubResource("RectangleShape2D_6202f")
 
 [node name="TopNeckArea" type="Area2D" parent="DragonParts"]
-position = Vector2(159, 205)
-scale = Vector2(1.15, 0.7)
+position = Vector2(300, 182)
 collision_layer = 2
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -449,7 +629,7 @@ position = Vector2(25, 9)
 shape = SubResource("RectangleShape2D_havcd")
 
 [node name="FootArea" type="Area2D" parent="DragonParts"]
-position = Vector2(350, 298.8)
+position = Vector2(350, 350)
 collision_layer = 2
 collision_mask = 0
 
@@ -470,8 +650,7 @@ offset_bottom = 325.0
 color = Color(0.501961, 0.227451, 0.109804, 1)
 
 [node name="Face" type="Node2D" parent="DragonParts"]
-position = Vector2(93, 135)
-metadata/_edit_group_ = true
+position = Vector2(252, 105)
 
 [node name="Jaw" type="ColorRect" parent="DragonParts/Face"]
 offset_left = -1.0
@@ -482,7 +661,7 @@ color = Color(0.501961, 0.227451, 0.109804, 1)
 
 [node name="Head" type="Sprite2D" parent="DragonParts/Face"]
 texture_filter = 1
-position = Vector2(49, 32.5)
+position = Vector2(49, 33.5)
 texture = ExtResource("2_yu4m4")
 
 [node name="Horn" type="Sprite2D" parent="DragonParts/Face"]
@@ -491,11 +670,9 @@ position = Vector2(84, 0.5)
 texture = ExtResource("3_bemey")
 
 [node name="Fire" parent="." instance=ExtResource("4_ii6l6")]
-visible = false
 position = Vector2(255, 184)
 
 [node name="NewAttackTimer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [node name="FireTimer" type="Timer" parent="."]
